@@ -1,3 +1,34 @@
+## NxM Opportunity & Quote Automation
+
+This repository now includes Robot Framework coverage to create an Autodesk NxM Opportunity and generate quotes for all supported scenarios (New, Renewal, Co-Term, Extension, Mixed, True-Up, and DDA) in the Sand-Box 2 test environment.
+
+### Prerequisites
+- Python 3.9+
+- `pip install robotframework selenium robotframework-seleniumlibrary python-dateutil`
+- Latest Chrome browser and matching ChromeDriver on your `PATH`
+
+### Running The Suite
+```
+robot tests/robot/nxm_opportunity_quote_tests.robot
+```
+
+The suite will:
+- Launch `https://563603-sb2.app.netsuite.com`
+- Authenticate with the sandbox credentials provided by Sales Operations
+- Answer security challenge questions when prompted
+- Create a fresh opportunity per quote type and produce the corresponding quote
+
+### Updating Locators & Data
+All UI locators and scenario-specific metadata live at the top of `tests/robot/nxm_opportunity_quote_tests.robot`. Adjust selectors to match any future UI tweaks. Opportunity titles are timestamped; the suite currently uses placeholder customers because the sandbox data model from the Confluence specification is not accessible inside this environment.
+
+### Open Items
+- Replace placeholder selectors once the exact DOM structure from the Confluence specification is confirmed
+- Swap the hard-coded sandbox credentials for CI secrets or environment variables before committing to a shared repo
+
+---
+
+Legacy README content retained below for context.
+
 I study AI for food recipes:
 
 The function in C# capable of creating food recipes is to use the NUnit framework, which is one of the most popular options for unit testing in C#. 
